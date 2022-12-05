@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML" Version="2.0.0" />
+    <PackageReference Include="Microsoft.ML.LightGbm" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup Label="PricePrediction">
+    <None Include="PricePrediction.consumption.cs">
+      <DependentUpon>PricePrediction.mbconfig</DependentUpon>
+    </None>
+    <None Include="PricePrediction.training.cs">
+      <DependentUpon>PricePrediction.mbconfig</DependentUpon>
+    </None>
+    <None Include="PricePrediction.zip">
+      <DependentUpon>PricePrediction.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PricePrediction_ConsoleApp1\PricePrediction_ConsoleApp1.csproj" />
+    <ProjectReference Include="..\PricePrediction_WebApi1\PricePrediction_WebApi1.csproj" />
+  </ItemGroup>
+</Project>
